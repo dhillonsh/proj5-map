@@ -18,11 +18,7 @@
   {% else %}
   <tr class="odd">
   {% endif %}	   
-    <td class="week">
-      {% if loop.index is 0 %}
-      a
-      {% endif %}
-      {{ entry.week }}</td>
+    <td class="week">{{ entry.week }}</td>
     <td class="topic">{{ entry.topic }}</td>
     <td class="project">{{ entry.project}}</td>
   </tr>
