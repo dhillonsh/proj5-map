@@ -46,10 +46,7 @@ def process(raw):
             entry['week'] = content
             date = base.replace(weeks = + (int(content) - 1))
             entry['date'] = date.format("MM/DD/YYYY")
-            print(date.timestamp)
-            print(arrow.utcnow().timestamp)
-            entry['stamp'] = (date.timestamp - arrow.utcnow().timestamp)
-            #entry['current'] = '0' if 
+            entry['currentWeek'] = 1 if (date.timestamp - arrow.utcnow().timestamp) < 604800 else 0
         elif field == 'topic' or field == 'project':
             entry[field] = content
         else:
