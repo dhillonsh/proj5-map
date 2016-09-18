@@ -44,10 +44,9 @@ def process(raw):
             entry['topic'] = ""
             entry['project'] = ""
             entry['week'] = content
-            entry['date'] = "ab"
+            entry['date'] = base.format("MM/DD/YYYY")
         elif field == 'topic' or field == 'project':
             entry[field] = content
-            entry['date'] = "sssd"
         else:
             raise ValueError("Syntax error in line: {}".format(line))
 
