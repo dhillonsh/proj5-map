@@ -14,7 +14,7 @@
   {% for entry in session.schedule %}
   {% if loop.index is 0 %}
   <tr class="currentWeek">
-  {% else if loop.index is divisibleby 2 %}
+  {% elif loop.index is divisibleby 2 %}
   <tr class="even">
   {% else %}
   <tr class="odd">
