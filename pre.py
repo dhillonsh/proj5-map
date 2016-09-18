@@ -47,7 +47,7 @@ def process(raw):
             entry['date'] = "ab"
         elif field == 'topic' or field == 'project':
             entry[field] = content
-
+            entry['date'] = "sssd"
         else:
             raise ValueError("Syntax error in line: {}".format(line))
 
