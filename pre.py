@@ -33,7 +33,7 @@ def process(raw):
         if field == "begin":
             try:
                 base = arrow.get(content, "MM/DD/YYYY")
-                print("Base date {}".format(base.isoformat()))
+                #print("Base date {}".format(base.isoformat()))
             except:
                 raise ValueError("Unable to parse date {}".format(content))
 
@@ -46,7 +46,7 @@ def process(raw):
             entry['week'] = content
             date = base.replace(weeks = + (int(content) - 1))
             entry['date'] = date.format("MM/DD/YYYY")
-            entry['currentWeek'] = 1 if (date.timestamp - arrow.utcnow().timestamp) < 604800 else 0
+            entry['currentWeek'] = '1' if (date.timestamp - arrow.utcnow().timestamp) < 604800 else '0'
         elif field == 'topic' or field == 'project':
             entry[field] = content
         else:
