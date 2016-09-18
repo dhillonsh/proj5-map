@@ -31,7 +31,7 @@ tr.even {
 }
 
 tr.currentWeek {
-	color: rgb(255, 0, 0);
+	color: red;
 }
 
 .class-schedule .week {
