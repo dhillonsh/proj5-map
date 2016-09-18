@@ -49,7 +49,7 @@ def process(raw):
             print(date.timestamp)
             print(arrow.utcnow().timestamp)
             print((date.timestamp - arrow.utcnow().timestamp) + "\n\n")
-            entry['current'] = '0' if 
+            #entry['current'] = '0' if 
         elif field == 'topic' or field == 'project':
             entry[field] = content
         else:
