@@ -44,7 +44,12 @@ def process(raw):
             entry['topic'] = ""
             entry['project'] = ""
             entry['week'] = content
-            entry['date'] = base.replace(weeks = + (int(content) - 1)).format("MM/DD/YYYY")
+            date = base.replace(weeks = + (int(content) - 1))
+            entry['date'] = date.format("MM/DD/YYYY")
+            print(date.timestamp)
+            print(arrow.utcnow().timestamp)
+            print((date.timestamp - arrow.utcnow().timestamp) + "\n\n")
+            entry['current'] = '0' if 
         elif field == 'topic' or field == 'project':
             entry[field] = content
         else:
