@@ -10,7 +10,6 @@
 
 <body>
 <h1>Schedule</h1>
-{{ pprint(session) }}
 <table class="class-schedule">
   {% for entry in session.schedule %}
   {% if loop.index is divisibleby 2 %}
