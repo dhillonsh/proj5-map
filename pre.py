@@ -53,6 +53,7 @@ def process(raw):
             raise ValueError("Syntax error in line: {}".format(line))
 
     if entry:
+        print(entry)
         cooked.append(entry)
 
     return cooked
