@@ -51,7 +51,7 @@ def process(raw):
             #604800 = 1 week in seconds
             if 0 <= (arrow.utcnow().timestamp - date.timestamp) <= 604800:
                 entry['currentWeek'] = True
-            else
+            else:
                 entry['currentWeek'] = False
 
         elif field == 'topic' or field == 'project':
