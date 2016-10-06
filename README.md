@@ -4,7 +4,7 @@
 
 ### Purpose ###
 * This application is for Project 2 of CIS 322 at University of Oregon.
-* The purpose was to become familiar with the flask framework to develop and display a simple schedule.
+* The purpose was to become familiar with the Flask framework and Jinja2 templating to develop and display a simple schedule.
 
 ### Application Specifics ###
 * The schedule will be read from [schedule.txt](/data/schedule.txt) and displayed automatically when visiting a routed address.
@@ -22,4 +22,5 @@
 * The default port is 5000, so the webserver should be reachable at http://localhost:5000 , and also through its IP address.
  
 ### Testing the Applicaiton ###
+ * There are no tests for this application other than accessing the webpage at http://localhost:5000 and seeing the schedule display.
 
