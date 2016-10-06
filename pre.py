@@ -33,7 +33,6 @@ def process(raw):
         if field == "begin":
             try:
                 base = arrow.get(content, "MM/DD/YYYY")
-                #print("Base date {}".format(base.isoformat()))
             except:
                 raise ValueError("Unable to parse date {}".format(content))
 
@@ -50,7 +49,11 @@ def process(raw):
             entry['date'] = date.format("MM/DD/YYYY")
             
             #604800 = 1 week in seconds
-            entry['currentWeek'] = True if 0 <= (arrow.utcnow().timestamp - date.timestamp) <= 604800 else False
+            if 0 <= (arrow.utcnow().timestamp - date.timestamp) <= 604800:
+                entry['currentWeek'] = True
+            else
+                entry['currentWeek'] = False
+
         elif field == 'topic' or field == 'project':
             entry[field] = content
         else:
@@ -65,7 +68,6 @@ def process(raw):
 def main():
     f = open("data/schedule.txt")
     parsed = process(f)
-    print(parsed)
 
 if __name__ == "__main__":
     main()
