@@ -14,7 +14,7 @@
 ### Running the Application ###
 * Test deployment to other environments including Raspberry Pi.  Deployment 
   should work "out of the box" with this command sequence:
-  ```
+  * ```
   git clone <yourGitRepository> <targetDirectory>
   cd <targetDirectory>
   make configure
