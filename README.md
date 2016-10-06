@@ -2,6 +2,8 @@
 
 ### Author: Harpreet Dhillon , harpreet@uoregon.edu ###
 
+---
+
 ### Purpose ###
 * This application is for Project 2 of CIS 322 at University of Oregon.
 * The purpose was to become familiar with the Flask framework and Jinja2 templating to develop and display a simple schedule.
