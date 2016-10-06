@@ -18,7 +18,7 @@
   * `cd <targetDirectory>`
   * `make configure`
   * `make run`
-  ** (control-C to stop program)
+  * (control-C to stop program)
 * The default port is 5000, so the webserver should be reachable at http://localhost:5000 , and also through its IP address.
  
 ### Testing the Applicaiton ###
