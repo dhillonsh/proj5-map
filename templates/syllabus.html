@@ -8,12 +8,6 @@
 
 <body>
 <div id="mapid" style="width: 600px; height: 400px;"></div>
-  
-{% for entry in session.poi %}}
-
-  {{entry.description}}
-  
-  {% endfor %}
 
 </body> </html>
 <script>
@@ -27,7 +21,7 @@
   
   
   //var marker = L.marker([51.5, -0.09]).addTo(mymap);
-  //marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+  //marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup()
   
   
   var popup = L.popup();
@@ -43,5 +37,18 @@ function onMapClick(e) {
 
   //mymap.locate({setview:true});
 mymap.on('click', onMapClick);
+  
+  
+    {% for entry in session.poi %}}
+      var latlng = L.latLng({{entry.lat}}, {{entry.long}});
+  
+      popup
+        .setLatLng(latlng)
+        .setContent({{entry.description}})
+        .openOn(mymap);
+  
+  var markerTemp = L.marker().setLatLng(latlng).bindPopup(popup).addTo(mymap);
+  
+  {% endfor %}
   
   </script>
