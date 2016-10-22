@@ -9,8 +9,11 @@
 <body>
 <div id="mapid" style="width: 600px; height: 400px;"></div>
   
+{% for entry in poi %}}
 
-
+  {{entry.description}}
+  
+  {% endfor %}
 
 </body> </html>
 <script>
