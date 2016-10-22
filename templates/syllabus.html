@@ -64,7 +64,7 @@ $(function() {
     console.log(latLng);
     $.getJSON("http://api.tiles.mapbox.com/v3/examples.map-zr0njcqy/geocode/" + latLng['lat'] + "," + latLng['lng'] + ".json", {}, 
       function(data) {
-        console.log(data['results'][0]);
+        console.log(data['results']);
       }
      );
   }
