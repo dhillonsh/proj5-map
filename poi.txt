@@ -1,0 +1,3 @@
+Domino's Pizza, 44.047000, -123.070315
+Papa John's Pizza, 44.025860, -123.091468
+Pegasus Pizza Campus, 44.044214, -123.080622
