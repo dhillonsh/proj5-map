@@ -41,11 +41,11 @@ mymap.on('click', onMapClick);
   //  {{ session.poiObj|safe }}
   //  console.log(data);
   /*
-      var latlng = L.latLng({{entry.lat}}, {{entry.long}});
+      var latlng = L.latLng(, );
   
       popup
         .setLatLng(latlng)
-        .setContent({{entry.description}})
+        .setContent()
         .openOn(mymap);
   
   var markerTemp = L.marker().setLatLng(latlng).bindPopup(popup).addTo(mymap);
