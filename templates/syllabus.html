@@ -1,30 +1,20 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html> <head>
 <title>Course Schedule</title>
-  <link rel="stylesheet" type="text/css" href="static/css/syllabus.css"
-   media="screen"/> 
-  <link rel="stylesheet" type="text/css" href="static/css/syllabus-print.css"
-   media="print"/> 
-
+  <link rel="stylesheet" href="static/leaflet/leaflet.css" />
+ <script src="static/leaflet/leaflet.js"></script>
+  <style>
+    #mapid { height: 180px; }
+  </style>
 </head>
 
 <body>
-<h1>Schedule</h1>
-<table class="class-schedule">
-  {% for entry in session.schedule %}
-  {% if loop.index is divisibleby 2 %}
-  <tr class="even {% if entry.currentWeek == True %}currentWeek{% endif %}">
-  {% else %}
-  <tr class="odd {% if entry.currentWeek == True %}currentWeek{% endif %}">
-  {% endif %}
-    <td class="date">{{ entry.date }}</td>
-    <td class="week">{{ entry.week }}</td>
-    <td class="topic">{{ entry.topic }}</td>
-    <td class="project">{{ entry.project}}</td>
-  </tr>
-  {% endfor %}
+<div id="mapid"></div>
   
 
 
 
 </body> </html>
+<script>
+  var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+  </script>
