@@ -39,7 +39,7 @@ function onMapClick(e) {
 mymap.on('click', onMapClick);
   
   
-    {% for entry in session.poi %}}
+    {% for entry in session.poi %}
       var latlng = L.latLng({{entry.lat}}, {{entry.long}});
   
       popup
