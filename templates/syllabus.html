@@ -9,7 +9,9 @@
 <body>
 <div id="mapid" style="width: 600px; height: 400px;"></div>
 
-  {session.flask}}
+  {% for entry in session.poiObj %}
+    <input type="hidden" value="{{entry}}">
+  {% endfor %}
   
 </body> </html>
 <script>
@@ -40,8 +42,6 @@ function onMapClick(e) {
   //mymap.locate({setview:true});
 mymap.on('click', onMapClick);
   
-    {{ session.poiObj|safe }}
-    console.log(session.poiObj);
   /*
       var latlng = L.latLng(, );
   
