@@ -22,4 +22,20 @@
     accessToken: 'pk.eyJ1IjoiZGhpbGxvbnNoIiwiYSI6ImNpdWxpMmtzZTAwNG4yenFtbDgwZnYwa2oifQ.UXiMpdCUjajpzzx3Zd0o_Q'
 }).addTo(mymap);
   
+  
+  //var marker = L.marker([51.5, -0.09]).addTo(mymap);
+  //marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+  
+  
+  var popup = L.popup();
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(mymap);
+}
+
+mymap.on('click', onMapClick);
+  
   </script>
