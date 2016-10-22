@@ -51,7 +51,7 @@ $(function() {
     split[1] = split[1].replace(/\s+/g, '');
     split[2] = split[2].replace(/\s+/g, '');
       var latlng = L.latLng(split[1],split[2]);
-  
+      getAddress(latlng);
       popupTemp
         .setLatLng(latlng)
         .setContent(split[0])
@@ -60,12 +60,13 @@ $(function() {
     var markerTemp = L.marker().setLatLng(latlng).bindPopup(popupTemp).addTo(mymap);
   });
   
-  $.getJSON("http://api.tiles.mapbox.com/v3/examples.map-zr0njcqy/geocode/-73.989,40.733.json", {}, 
+  function getAddress(latLng) {
+    console.log(latLng);
+    $.getJSON("http://api.tiles.mapbox.com/v3/examples.map-zr0njcqy/geocode/-73.989,40.733.json", {}, 
       function(data) {
-        console.log(data);
+        console.log(data['results']);
       }
      );
-  
-  
+  }
 });
   </script>
