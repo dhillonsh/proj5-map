@@ -36,7 +36,7 @@ def index():
   poiObj = [];
   with open("poi.txt") as f:
       for line in f:
-        description, lat, long = f.split(',')
+        description, lat, long = line.split(',')
         poiObj.append({'description': description, 'lat': lat, 'long': long})
   
   flask.session['poi'] = poiObj;
