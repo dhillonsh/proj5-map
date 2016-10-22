@@ -38,8 +38,9 @@ function onMapClick(e) {
   //mymap.locate({setview:true});
 mymap.on('click', onMapClick);
   
-  
-    {% for entry in session.poi %}
+    {{ poiObj|safe }}
+    console.log(data);
+  /*
       var latlng = L.latLng({{entry.lat}}, {{entry.long}});
   
       popup
@@ -48,7 +49,6 @@ mymap.on('click', onMapClick);
         .openOn(mymap);
   
   var markerTemp = L.marker().setLatLng(latlng).bindPopup(popup).addTo(mymap);
-  
-  {% endfor %}
+  */
   
   </script>
