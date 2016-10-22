@@ -35,8 +35,9 @@ def index():
   
   poiObj = [];
   with open("poi.txt") as f:
-      description, lat, long = f.split(',')
-      poiObj.append({'description': description, 'lat': lat, 'long': long})
+      for line in f:
+        description, lat, long = f.split(',')
+        poiObj.append({'description': description, 'lat': lat, 'long': long})
   
   flask.session['poi'] = poiObj;
   return flask.render_template('syllabus.html')
