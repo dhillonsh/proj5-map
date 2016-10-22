@@ -15,13 +15,14 @@
   
 </body> </html>
 <script>
+$(function() {
   var mymap = L.map('mapid').setView([44.052, -123.086], 13);
   
   L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZGhpbGxvbnNoIiwiYSI6ImNpdWxpMmtzZTAwNG4yenFtbDgwZnYwa2oifQ.UXiMpdCUjajpzzx3Zd0o_Q', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
     accessToken: 'pk.eyJ1IjoiZGhpbGxvbnNoIiwiYSI6ImNpdWxpMmtzZTAwNG4yenFtbDgwZnYwa2oifQ.UXiMpdCUjajpzzx3Zd0o_Q'
-}).addTo(mymap);
+  }).addTo(mymap);
   
   
   //var marker = L.marker([51.5, -0.09]).addTo(mymap);
@@ -30,17 +31,17 @@
   
   var popup = L.popup();
 
-function onMapClick(e) {
+  function onMapClick(e) {
     popup
         .setLatLng(e.latlng)
         .setContent("You clicked the map at " + e.latlng.toString())
         .openOn(mymap);
   
-  var markerTemp = L.marker().setLatLng(e.latlng).bindPopup(popup).addTo(mymap);
-}
+    var markerTemp = L.marker().setLatLng(e.latlng).bindPopup(popup).addTo(mymap);
+  }
 
   //mymap.locate({setview:true});
-mymap.on('click', onMapClick);
+  mymap.on('click', onMapClick);
   
   $("input[type=hidden]").each(function() {
     split = $(this).val().replace(/\s+/g, '').split(',');
@@ -53,5 +54,5 @@ mymap.on('click', onMapClick);
   
     var markerTemp = L.marker().setLatLng(latlng).bindPopup(popup).addTo(mymap);
   });
-  
+});
   </script>
