@@ -32,6 +32,13 @@ import CONFIG
 @app.route("/index")
 def index():
   app.logger.debug("Main page entry")
+  
+  poiObj = [];
+  with open("poi.txt") as f:
+      description, lat, long = f.split(',')
+      poiObj.append({'description': description, 'lat': lat, 'long': long})
+  
+  flask.session['poi'] = poiObj;
   return flask.render_template('syllabus.html')
 
 
