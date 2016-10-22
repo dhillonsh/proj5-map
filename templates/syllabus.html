@@ -42,15 +42,16 @@ function onMapClick(e) {
   //mymap.locate({setview:true});
 mymap.on('click', onMapClick);
   
-  /*
-      var latlng = L.latLng(, );
+  $("input[type=hidden]").each(function() {
+    split = $(this).val().replace(/\s+/g, '').split(',');
+      var latlng = L.latLng(split[1],split[2]);
   
       popup
         .setLatLng(latlng)
-        .setContent()
+        .setContent(split[0])
         .openOn(mymap);
   
-  var markerTemp = L.marker().setLatLng(latlng).bindPopup(popup).addTo(mymap);
-  */
+    var markerTemp = L.marker().setLatLng(latlng).bindPopup(popup).addTo(mymap);
+  });
   
   </script>
