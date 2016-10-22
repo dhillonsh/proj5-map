@@ -38,8 +38,8 @@ def index():
       for line in f:
         description, lat, long = line.split(',')
         poiObj.append({'description': description, 'lat': lat, 'long': long})
-  
-  return flask.render_template('syllabus.html', poi=poiObj)
+  flask.session['poi'] = poiObj
+  return flask.render_template('syllabus.html')
 
 
 @app.errorhandler(404)
