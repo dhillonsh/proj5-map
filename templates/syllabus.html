@@ -46,15 +46,16 @@ $(function() {
   mymap.on('click', onMapClick);
   
   $("input[type=hidden]").each(function() {
+    popupTemp = L.popup()
     split = $(this).val().replace(/\s+/g, '').split(',');
       var latlng = L.latLng(split[1],split[2]);
   
-      popup
+      popupTemp
         .setLatLng(latlng)
         .setContent(split[0])
         .openOn(mymap);
   
-    var markerTemp = L.marker().setLatLng(latlng).bindPopup(popup).addTo(mymap);
+    var markerTemp = L.marker().setLatLng(latlng).bindPopup(popupTemp).addTo(mymap);
   });
 });
   </script>
