@@ -62,9 +62,9 @@ $(function() {
   
   function getAddress(latLng) {
     console.log(latLng);
-    $.getJSON("http://api.tiles.mapbox.com/v3/examples.map-zr0njcqy/geocode/-73.989,40.733.json", {}, 
+    $.getJSON("http://api.tiles.mapbox.com/v3/examples.map-zr0njcqy/geocode/" + latLng['lat'] + "," + latLng['lng'] + ".json", {}, 
       function(data) {
-        console.log(data['results']);
+        console.log(data['results'][0]);
       }
      );
   }
