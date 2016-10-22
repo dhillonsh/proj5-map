@@ -47,7 +47,9 @@ $(function() {
   
   $("input[type=hidden]").each(function() {
     popupTemp = L.popup()
-    split = $(this).val().replace(/\s+/g, '').split(',');
+    split = $(this).val().split(',');
+    split[1] = replace(/\s+/g, '');
+    split[2] = replace(/\s+/g, '');
       var latlng = L.latLng(split[1],split[2]);
   
       popupTemp
