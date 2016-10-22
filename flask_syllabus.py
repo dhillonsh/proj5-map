@@ -17,10 +17,6 @@ import arrow # Replacement for datetime, based on moment.js
 import datetime # But we still need time
 from dateutil import tz  # For interpreting local times
 
-# Our own module
-import pre  # Preprocess schedule file
-
-
 ###
 # Globals
 ###
@@ -34,14 +30,8 @@ import CONFIG
 
 @app.route("/")
 @app.route("/index")
-@app.route("/schedule")
 def index():
   app.logger.debug("Main page entry")
-  if 'schedule' not in flask.session:
-      app.logger.debug("Processing raw schedule file")
-      raw = open(CONFIG.schedule)
-      flask.session['schedule'] = pre.process(raw)
-
   return flask.render_template('syllabus.html')
 
 
