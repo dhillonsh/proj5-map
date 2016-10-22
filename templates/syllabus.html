@@ -35,7 +35,7 @@ function onMapClick(e) {
         .setContent("You clicked the map at " + e.latlng.toString())
         .openOn(mymap);
 */
-  var markerTemp = L.marker().setLatLng(e.latlng).setContent(e.latlng.toString()).addTo(mymap);
+  var markerTemp = L.marker().setLatLng(e.latlng).setPopupContent(e.latlng.toString()).addTo(mymap);
 }
 
 mymap.on('click', onMapClick);
