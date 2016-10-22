@@ -33,10 +33,12 @@ function onMapClick(e) {
     popup
         .setLatLng(e.latlng)
         .setContent("You clicked the map at " + e.latlng.toString())
-        .openon(mymap);
+        .openOn(mymap);
+  
   var markerTemp = L.marker().setLatLng(e.latlng).bindPopup(popup).addTo(mymap);
 }
 
+  mymap.locate({setview:true});
 mymap.on('click', onMapClick);
   
   </script>
