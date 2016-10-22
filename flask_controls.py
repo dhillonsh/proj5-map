@@ -39,8 +39,7 @@ def index():
         description, lat, long = line.split(',')
         poiObj.append({'description': description, 'lat': lat, 'long': long})
   
-  flask.session['poi'] = poiObj;
-  return flask.render_template('syllabus.html')
+  return flask.render_template('syllabus.html', poiObj=json.dumps(poiObj))
 
 
 @app.errorhandler(404)
