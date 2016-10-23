@@ -65,15 +65,12 @@ $(function() {
     $.ajax({
         type: "GET",
         url: "https://api.mapbox.com/geocoding/v5/mapbox.places/" + latLng['lng'] + "," + latLng['lat'] + ".json?access_token=pk.eyJ1IjoiZGhpbGxvbnNoIiwiYSI6ImNpdWxpMmtzZTAwNG4yenFtbDgwZnYwa2oifQ.UXiMpdCUjajpzzx3Zd0o_Q",
-        data: ({}),
-        //line added to get ajax response in sync
-        async: false,
         success: function(data) {
             //line added to save ajax response in var result
           console.log(data);
             result = data;
         }
-    });
+      });
     return result;
   }
    /* $.getJSON(, {}, 
