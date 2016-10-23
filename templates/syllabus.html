@@ -62,7 +62,7 @@ $(function() {
   
   function getAddress(latLng) {
     console.log(latLng);
-    $.getJSON("https://api.mapbox.com/geocoding/v5/mapbox.places/-123.0951,44.0505.json?access_token=pk.eyJ1IjoiZGhpbGxvbnNoIiwiYSI6ImNpdWxpMmtzZTAwNG4yenFtbDgwZnYwa2oifQ.UXiMpdCUjajpzzx3Zd0o_Q", {}, 
+    $.getJSON("https://api.mapbox.com/geocoding/v5/mapbox.places/" + latLng['lng'] + "," + latLng['lat'] + ".json?access_token=pk.eyJ1IjoiZGhpbGxvbnNoIiwiYSI6ImNpdWxpMmtzZTAwNG4yenFtbDgwZnYwa2oifQ.UXiMpdCUjajpzzx3Zd0o_Q", {}, 
       function(data) {
         console.log(data);
       }
