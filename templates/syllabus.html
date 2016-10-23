@@ -72,12 +72,10 @@ $(function() {
             //line added to save ajax response in var result
           console.log(Data);
             result = data;
-        },
-        error: function() {
         }
     });
     return result;
-    
+  }
    /* $.getJSON(, {}, 
       function(data) {
         returnData = data['features'][0]['place_name'];
