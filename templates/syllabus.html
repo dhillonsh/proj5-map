@@ -62,9 +62,9 @@ $(function() {
   
   function getAddress(latLng) {
     console.log(latLng);
-    $.getJSON("http://api.tiles.mapbox.com/v3/examples.map-zr0njcqy/geocode/" + latLng['lat'] + "," + latLng['lng'] + ".json", {}, 
+    $.getJSON("https://api.mapbox.com/geocoding/v5/mapbox.places/-123.0951,44.0505.json?access_token=pk.eyJ1IjoiZGhpbGxvbnNoIiwiYSI6ImNpdWxpMmtzZTAwNG4yenFtbDgwZnYwa2oifQ.UXiMpdCUjajpzzx3Zd0o_Q", {}, 
       function(data) {
-        console.log(data['results']);
+        console.log(data);
       }
      );
   }
