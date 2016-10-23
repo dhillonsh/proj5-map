@@ -68,7 +68,7 @@ $(function() {
         success: function(data) {
             //line added to save ajax response in var result
           console.log(data);
-            result = data;
+            result = data['features'][0]['place_name'];
         }
       });
     return result;
