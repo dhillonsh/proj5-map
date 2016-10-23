@@ -36,7 +36,7 @@ $(function() {
   function onMapClick(e) {
     popup
         .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
+        .setContent(getAddress(e.latlng))
         .openOn(mymap);
   
     var markerTemp = L.marker().setLatLng(e.latlng).bindPopup(popup).addTo(mymap);
