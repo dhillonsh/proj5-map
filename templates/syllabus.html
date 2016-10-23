@@ -61,12 +61,14 @@ $(function() {
   });
   
   function getAddress(latLng) {
-    console.log(latLng);
+    var returnData;
     $.getJSON("https://api.mapbox.com/geocoding/v5/mapbox.places/" + latLng['lng'] + "," + latLng['lat'] + ".json?access_token=pk.eyJ1IjoiZGhpbGxvbnNoIiwiYSI6ImNpdWxpMmtzZTAwNG4yenFtbDgwZnYwa2oifQ.UXiMpdCUjajpzzx3Zd0o_Q", {}, 
       function(data) {
-        return data['features'][0]['place_name'];
+        returnData = data['features'][0]['place_name'];
       }
      );
+    console.log('Return - ' + returnData);
+    return returnData;
   }
 });
   </script>
