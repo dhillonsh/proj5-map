@@ -83,7 +83,7 @@ $(function() {
         type: "GET",
         url: "https://api.mapbox.com/geocoding/v5/mapbox.places/" + latLng['lng'] + "," + latLng['lat'] + ".json?access_token=pk.eyJ1IjoiZGhpbGxvbnNoIiwiYSI6ImNpdWxpMmtzZTAwNG4yenFtbDgwZnYwa2oifQ.UXiMpdCUjajpzzx3Zd0o_Q",
         success: function(data) {
-          if('features' in data and len(data['features']) > 0 and 'place_name' in data['features'][0])
+          if('features' in data && data['features'].length > 0 && 'place_name' in data['features'][0])
             marker.setPopupContent(additionalStr + data['features'][0]['place_name']);
           else marker.setPopupContent('Address not found.');
         }
