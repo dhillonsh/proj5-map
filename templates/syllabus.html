@@ -36,10 +36,11 @@ $(function() {
   function onMapClick(e) {
     popup
         .setLatLng(e.latlng)
-        .setContent(getAddress(e.latlng))
+      //  .setContent(getAddress(e.latlng))
         .openOn(mymap);
   
     var markerTemp = L.marker().setLatLng(e.latlng).bindPopup(popup).addTo(mymap);
+    getAddress(e.latlng, marker);
   }
 
   //mymap.locate({setview:true});
@@ -51,7 +52,6 @@ $(function() {
     split[1] = split[1].replace(/\s+/g, '');
     split[2] = split[2].replace(/\s+/g, '');
       var latlng = L.latLng(split[1],split[2]);
-      getAddress(latlng);
       popupTemp
         .setLatLng(latlng)
         .setContent(split[0])
@@ -60,17 +60,17 @@ $(function() {
     var markerTemp = L.marker().setLatLng(latlng).bindPopup(popupTemp).addTo(mymap);
   });
   
-  function getAddress(latLng) {
+  function getAddress(latLng, marker) {
     var result = false;
     $.ajax({
         type: "GET",
         url: "https://api.mapbox.com/geocoding/v5/mapbox.places/" + latLng['lng'] + "," + latLng['lat'] + ".json?access_token=pk.eyJ1IjoiZGhpbGxvbnNoIiwiYSI6ImNpdWxpMmtzZTAwNG4yenFtbDgwZnYwa2oifQ.UXiMpdCUjajpzzx3Zd0o_Q",
-        async: false,  
       success: function(data) {
             //line added to save ajax response in var result
           console.log(data['features'][0]['place_name']);
           this.result = data['features'][0]['place_name'];
-        }
+          marker.setPopupContent(data['features'][0]['place_name']);
+        
       });
     console.log('Result = [' + result + ']');
     return result;
