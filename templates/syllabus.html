@@ -10,9 +10,16 @@
 
 <body>
 <div id="mapid" style="width: 600px; height: 400px;"></div>
-
-  <button id="returnHome">Return to Eugene</button>
+  <table>
+    <tr><td><button id="returnHome">Return to Eugene</button></td></tr>
+    <tr>
+      <td><input type="text" id="lat"></td>
+      <td><input type="text" id="long"></td>
+      <td><button id="latlongSearch">Search</button></td>
+    </tr>
   
+    
+    <table>
   {% for entry in session.poi %}
     <input type="hidden" value="{{entry}}">
   {% endfor %}
