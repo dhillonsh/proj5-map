@@ -48,10 +48,11 @@ $(function() {
       var latlng = L.latLng(split[1],split[2]);
       popupTemp
         .setLatLng(latlng)
-        .setContent(split[0] + "\n")
+        .setContent('Searching...');
         .openOn(mymap);
   
     var markerTemp = L.marker().setLatLng(latlng).bindPopup(popupTemp).addTo(mymap);
+    getAddress(latlng, markerTemp, split[0] + "\n"))
   });
   
   function getAddress(latLng, marker, additionalStr='') {
