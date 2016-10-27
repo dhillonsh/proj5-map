@@ -31,16 +31,17 @@ $(function() {
   //marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup()
   
   
-  var popup = L.popup();
+  //var popup = L.popup();
 
   function onMapClick(e) {
+    var popup = L.popup();
     popup
         .setLatLng(e.latlng)
       //  .setContent(getAddress(e.latlng))
         .openOn(mymap);
   
     var markerTemp = L.marker().setLatLng(e.latlng).bindPopup(popup).addTo(mymap);
-    getAddress(e.latlng, popup);
+    getAddress(e.latlng, markerTemp);
   }
 
   //mymap.locate({setview:true});
