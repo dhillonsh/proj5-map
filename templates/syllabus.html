@@ -17,7 +17,7 @@
   
 </body> </html>
 <script>
-  function onMapClick(e) {
+  function onMapClick(e, mymap) {
     var popup = L.popup();
     popup
         .setLatLng(e.latlng)
@@ -37,7 +37,7 @@ $(function() {
     accessToken: 'pk.eyJ1IjoiZGhpbGxvbnNoIiwiYSI6ImNpdWxpMmtzZTAwNG4yenFtbDgwZnYwa2oifQ.UXiMpdCUjajpzzx3Zd0o_Q'
   }).addTo(mymap);
 
-  mymap.on('click', onMapClick);
+  mymap.on('click', onMapClick, mymap);
   
   $("input[type=hidden]").each(function() {
     popupTemp = L.popup()
