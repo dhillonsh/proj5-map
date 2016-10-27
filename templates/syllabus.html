@@ -55,7 +55,11 @@ $(function() {
     mymap.setView(startCoordinates, startZoom);
   });
   $('#latlongSearch').on('click', function() {
-    onMapClick(new L.latLng($('#lat').val(), $('#long').val()));
+    var lat = $('#lat').val();
+    var long = $('#long').val();
+    latLngObj = new L.latLng(lat, long);
+    onMapClick(latLngObj);
+    mymap.setView(latLngObj, startZoom);
     
   });
   $("input[type=hidden]").each(function() {
