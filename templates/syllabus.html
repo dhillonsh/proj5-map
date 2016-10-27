@@ -57,7 +57,8 @@ $(function() {
   $('#latlongSearch').on('click', function() {
     var lat = $('#lat').val();
     var long = $('#long').val();
-    latLngObj = new L.latLng(lat, long);
+    var latLngObj = new L.latLng(lat, long);
+    console.log(latLngObj);
     onMapClick(latLngObj);
     mymap.setView(latLngObj, startZoom);
     
