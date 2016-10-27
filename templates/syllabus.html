@@ -69,7 +69,7 @@ $(function() {
             //line added to save ajax response in var result
           console.log(data['features'][0]['place_name']);
           this.result = data['features'][0]['place_name'];
-          this.marker.setPopupContent(data['features'][0]['place_name']);
+          marker.setPopupContent(data['features'][0]['place_name']);
       }
       });
     console.log('Result = [' + result + ']');
