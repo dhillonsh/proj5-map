@@ -45,8 +45,7 @@ $(function() {
   mymap.on('click', onMapClick);
   
   $('#returnHome').on('click', function() {
-    mymap.setZoom(startZoom);
-    mymap.panTo(startCoordinates);
+    mymap.setView(startCoordinates, startZoom);
   });
   
   $("input[type=hidden]").each(function() {
