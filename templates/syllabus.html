@@ -38,7 +38,7 @@ $(function() {
   }).addTo(mymap);
 
   
-    function onMapClick(e) {
+    function placeMarker(e) {
     var popup = L.popup();
     popup
         .setLatLng(e.latlng)
@@ -49,19 +49,22 @@ $(function() {
     getAddress(e.latlng, markerTemp);
   }
   
-  mymap.on('click', onMapClick);
+  mymap.on('click', placeMarker);
   
   $('#returnHome').on('click', function() {
-    mymap.setView(startCoordinates, startZoom);
+    mymap.locate({setView : true});
+    //mymap.setView(startCoordinates, startZoom);
   });
   $('#latlongSearch').on('click', function() {
     var lat = $('#lat').val();
     var long = $('#long').val();
     var latLngObj = new L.latLng(lat, long);
-    onMapClick({latlng: latLngObj});
+    placeMarker({latlng: latLngObj});
     mymap.setView(latLngObj, startZoom);
     
   });
+  
+  //Points of Interest
   $("input[type=hidden]").each(function() {
     popupTemp = L.popup()
     split = $(this).val().split(',');
