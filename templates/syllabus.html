@@ -54,7 +54,10 @@ $(function() {
   $('#returnHome').on('click', function() {
     mymap.setView(startCoordinates, startZoom);
   });
-  
+  $('#latlongSearch').on('click', function() {
+    onMapClick(new L.latLng($('#lat').val(), $('#long').val()));
+    
+  });
   $("input[type=hidden]").each(function() {
     popupTemp = L.popup()
     split = $(this).val().split(',');
