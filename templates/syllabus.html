@@ -58,17 +58,7 @@ $(function() {
     var lat = $('#lat').val();
     var long = $('#long').val();
     var latLngObj = new L.latLng(lat, long);
-    console.log(latLngObj);
-    
-    var popup = L.popup();
-    popup
-        .setLatLng(latLngObj)
-        .setContent('Searching...')
-        .openOn(mymap);
-  
-    var markerTemp = L.marker().setLatLng(e.latlng).bindPopup(popup).addTo(mymap);
-    getAddress(e.latlng, markerTemp);
-    
+    onMapClick({latlng: latLngObj});
     mymap.setView(latLngObj, startZoom);
     
   });
