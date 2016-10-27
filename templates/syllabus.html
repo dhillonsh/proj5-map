@@ -11,6 +11,8 @@
 <body>
 <div id="mapid" style="width: 600px; height: 400px;"></div>
 
+  <input type="text" id="returnHome" value="Return to Eugene" />
+  
   {% for entry in session.poi %}
     <input type="hidden" value="{{entry}}">
   {% endfor %}
@@ -39,6 +41,11 @@ $(function() {
   }
   
   mymap.on('click', onMapClick);
+  
+    $('#returnHome').on('click', function() {
+    mymap.panTo(new L.LatLng(40.737, -73.923));
+    
+  });
   
   $("input[type=hidden]").each(function() {
     popupTemp = L.popup()
