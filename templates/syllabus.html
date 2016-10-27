@@ -52,8 +52,7 @@ $(function() {
   mymap.on('click', placeMarker);
   
   $('#returnHome').on('click', function() {
-    mymap.locate({setView : true});
-    //mymap.setView(startCoordinates, startZoom);
+    mymap.setView(startCoordinates, startZoom);
   });
   $('#latlongSearch').on('click', function() {
     var lat = $('#lat').val();
