@@ -17,6 +17,17 @@
   
 </body> </html>
 <script>
+  function onMapClick(e) {
+    var popup = L.popup();
+    popup
+        .setLatLng(e.latlng)
+        .setContent('Searching...')
+        .openOn(mymap);
+  
+    var markerTemp = L.marker().setLatLng(e.latlng).bindPopup(popup).addTo(mymap);
+    getAddress(e.latlng, markerTemp);
+  }
+  
 $(function() {
   var mymap = L.map('mapid').setView([44.052, -123.086], 13);
   
@@ -25,26 +36,7 @@ $(function() {
     maxZoom: 18,
     accessToken: 'pk.eyJ1IjoiZGhpbGxvbnNoIiwiYSI6ImNpdWxpMmtzZTAwNG4yenFtbDgwZnYwa2oifQ.UXiMpdCUjajpzzx3Zd0o_Q'
   }).addTo(mymap);
-  
-  
-  //var marker = L.marker([51.5, -0.09]).addTo(mymap);
-  //marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup()
-  
-  
-  //var popup = L.popup();
 
-  function onMapClick(e) {
-    var popup = L.popup();
-    popup
-        .setLatLng(e.latlng)
-      //  .setContent(getAddress(e.latlng))
-        .openOn(mymap);
-  
-    var markerTemp = L.marker().setLatLng(e.latlng).bindPopup(popup).addTo(mymap);
-    getAddress(e.latlng, markerTemp);
-  }
-
-  //mymap.locate({setview:true});
   mymap.on('click', onMapClick);
   
   $("input[type=hidden]").each(function() {
@@ -55,13 +47,13 @@ $(function() {
       var latlng = L.latLng(split[1],split[2]);
       popupTemp
         .setLatLng(latlng)
-        .setContent(split[0])
+        .setContent(split[0] + "\n")
         .openOn(mymap);
   
     var markerTemp = L.marker().setLatLng(latlng).bindPopup(popupTemp).addTo(mymap);
   });
   
-  function getAddress(latLng, marker) {
+  function getAddress(latLng, marker, additionalStr='') {
     var result = false;
     $.ajax({
         type: "GET",
@@ -70,19 +62,11 @@ $(function() {
             //line added to save ajax response in var result
           console.log(data['features'][0]['place_name']);
           this.result = data['features'][0]['place_name'];
-          marker.setPopupContent(data['features'][0]['place_name']);
+          marker.setPopupContent(additionalStr + data['features'][0]['place_name']);
       }
       });
     console.log('Result = [' + result + ']');
     return result;
   }
-   /* $.getJSON(, {}, 
-      function(data) {
-        returnData = data['features'][0]['place_name'];
-      }
-     );
-    console.log('Return - ' + returnData);
-    return returnData;
-  }*/
 });
   </script>
