@@ -20,7 +20,7 @@
 </body> </html>
 <script>
 $(function() {
-  startCoordinates = new L.LatLng(44.052, -123.086])
+  startCoordinates = new L.LatLng(44.052, -123.086);
   var mymap = L.map('mapid').setView(startCoordinates, 13);
   
   L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token={{ secret_token }}', {
