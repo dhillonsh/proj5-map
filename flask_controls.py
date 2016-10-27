@@ -40,7 +40,7 @@ def index():
         #poiObj.append({'description': description, 'lat': lat, 'long': long})
         poiObj.append(line.rstrip("\n"))
   flask.session['poi'] = poiObj
-  return flask.render_template('syllabus.html')
+  return flask.render_template('syllabus.html', secret_token='pk.eyJ1IjoiZGhpbGxvbnNoIiwiYSI6ImNpdWxpMmtzZTAwNG4yenFtbDgwZnYwa2oifQ.UXiMpdCUjajpzzx3Zd0o_Q')
 
 
 @app.errorhandler(404)
