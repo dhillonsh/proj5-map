@@ -126,9 +126,8 @@ $(function() {
       }
       markerArray = [];
       $.each(event.target.result.split("\n"), function(n, elem) {
-            console.log(elem + " []");
-          });
-      //pinLocations.push(markerArray[i].getLatLng().lat + ', ' + markerArray[i].getLatLng().lng); 
+        placeMarker(elem);
+      });
     }
 
     reader.readAsText(selectedFile);
