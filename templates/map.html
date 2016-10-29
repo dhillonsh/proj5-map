@@ -35,6 +35,8 @@ $(function() {
   startCoordinates = new L.latLng(44.052, -123.086);
   startZoom = 13;
   
+  markerArray = new Array();
+  
   $('#lat').val(startCoordinates.lat);
   $('#long').val(startCoordinates.lng);
   
@@ -62,13 +64,17 @@ $(function() {
         .setContent('Searching...')
         .openOn(mymap);
   
-    if(marker == true) var markerTemp = L.marker().setLatLng(e.latlng).bindPopup(popup).addTo(mymap);
+    if(marker == true) {
+      var markerTemp = L.marker().setLatLng(e.latlng).bindPopup(popup).addTo(mymap);
+      markerArray.push(markerTemp);
+    }
     getAddress(e.latlng, popup, extraStr);
   }
   
   $("#export").click(function(){
-    var now = new Date().toString();
-    this.href = "data:text/plain;charset=UTF-8,"  + encodeURIComponent(now);
+    console.log(markerArray);
+    //var now = new Date().toString();
+    //this.href = "data:text/plain;charset=UTF-8,"  + encodeURIComponent(now);
   });
   $('#returnHome').on('click', function() {
     mymap.setView(startCoordinates, startZoom);
