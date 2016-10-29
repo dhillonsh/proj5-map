@@ -41,14 +41,14 @@ $(function() {
   }).addTo(mymap);
 
   tmpPopUp = L.popup();
-   function placeMarker(e) {
+  function placeMarker(e, marker=True) {
     var popup = L.popup();
     popup
         .setLatLng(e.latlng)
         .setContent('Searching...')
         .openOn(mymap);
   
-    var markerTemp = L.marker().setLatLng(e.latlng).bindPopup(popup).addTo(mymap);
+    if(marker == True) var markerTemp = L.marker().setLatLng(e.latlng).bindPopup(popup).addTo(mymap);
     getAddress(e.latlng, popup);
   }
   
