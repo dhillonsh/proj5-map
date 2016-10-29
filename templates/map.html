@@ -8,10 +8,7 @@
   </script>
 </head>
 
-<body>
-<a href="data:text/plain;charset=UTF-8,Hello%20World!" download="hello.txt">Download (static)</a>
-<a id="programatically" href="" download="date.txt">Download (dynamic)</a>
-  
+<body>  
   <table width="100%" border="1" align="center">
     <tr><td colspan="100%" align="center"><button id="returnHome">Return to Eugene</button></td></tr>
     <tr>
@@ -19,8 +16,8 @@
       <td align="center">Longtitude: <input type="text" id="long" placeholder="Longitude"></td>
     </tr>
     <tr>
-      <td align="center"><textarea></textarea></td>
-      <td align="center"></td>
+      <td align="center"><button id="export">Export Pin Locations</button></td>
+      <td align="center"><button id="import">Import Pin Locations</button></td>
     </tr>
     <tr>
       <td colspan="100%" align="center"><div id="mapid" style="width: 100%; height: 400px;"></div></td>
@@ -33,16 +30,7 @@
   {% endfor %}
   
 </body> </html>
-<script>
-  $(document).ready(function(){
-
-  $(".hashtag").click(function(){
-    var txt = $.trim($(this).text());
-    var box = $("#text-box");
-    box.val(box.val() + txt);
-  });
-});
-  
+<script>  
 $(function() {
   startCoordinates = new L.latLng(44.052, -123.086);
   startZoom = 13;
@@ -78,6 +66,12 @@ $(function() {
     getAddress(e.latlng, popup, extraStr);
   }
   
+  $('#export').on('click', function() {
+        var now = new Date().toString();
+    this.href = "data:text/plain;charset=UTF-8,"  + encodeURIComponent(now);
+    
+    
+  });
   $('#returnHome').on('click', function() {
     mymap.setView(startCoordinates, startZoom);
     updateLatLong($(this));
