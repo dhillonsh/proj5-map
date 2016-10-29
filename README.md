@@ -11,8 +11,10 @@
 ### Application Specifics ###
 * There is a [poi](/poi.txt) txt file that specifies a preset set of Points of Interest that will be placed on the map automatically and follow the format:
   * Description, Latitude, Longtitude
-* There are two inputs that automatically update with the respect latitude/longitutde of the map after dragging, it can also be used to change the set of the map to a specific latitude/longtitude
-* There is also a button that will return the map to the view of Eugene, Oregon
+* Additional Features:
+  * Two inputs that automatically update with the respect latitude/longitutde of the map after dragging, it can also be used to change the set of the map to a specific latitude/longtitude
+  * A button that will return the map to the view of Eugene, Oregon
+  * A button to export the current pin configuration and ability to import a new pin configuration (current map will be overridden) 
 
 ### Running the Application ###
 * Test deployment to other environments including Raspberry Pi.  Deployment 
