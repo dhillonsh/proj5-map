@@ -7,7 +7,23 @@
      src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
   </script>
 </head>
+<script>
+  $(function() {
+      function onFileSelected(event) {
+    var selectedFile = event.target.files[0];
+    var reader = new FileReader();
 
+    //var result = document.getElementById("result");
+
+    reader.onload = function(event) {
+      console.log(event.target.result);
+      //result.innerHTML = event.target.result;
+    };
+
+    reader.readAsText(selectedFile);
+  }
+  });
+  </script>
 <body>  
   <table width="100%" border="1" align="center">
     <tr><td colspan="100%" align="center"><button id="returnHome">Return to Eugene</button></td></tr>
@@ -114,20 +130,6 @@ $(function() {
           else popup.setContent('Address not found.');
         }
     });
-  }
-  
-  function onFileSelected(event) {
-    var selectedFile = event.target.files[0];
-    var reader = new FileReader();
-
-    //var result = document.getElementById("result");
-
-    reader.onload = function(event) {
-      console.log(event.target.result);
-      //result.innerHTML = event.target.result;
-    };
-
-    reader.readAsText(selectedFile);
   }
   
 });
