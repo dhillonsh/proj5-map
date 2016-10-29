@@ -57,22 +57,18 @@ $(function() {
   $('#returnHome').on('click', function() {
     mymap.locate({setView: true});//mymap.setView(startCoordinates, startZoom);
   });
-/*  $('#lat, #long').on('keyup', function() {
-    
-    
-    
-  });*/
+
   $('#lat, #long').on('keyup', function() {
     var lat = $('#lat').val();
     var long = $('#long').val();
     var latLngObj = new L.latLng(lat, long);
-    //placeMarker({latlng: latLngObj});
-    mymap.setView(latLngObj, startZoom);
+    placeMarker({latlng: latLngObj}, false);
+    /*mymap.setView(latLngObj, startZoom);
     tmpPopUp
         .setLatLng(latLngObj)
         .setContent("Searching...")
         .openOn(mymap);
-   getAddress(latLngObj, tmpPopUp);
+   getAddress(latLngObj, tmpPopUp);*/
   });
   
   //Points of Interest
