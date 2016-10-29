@@ -16,7 +16,7 @@
       <td align="center">Longtitude: <input type="text" id="long" placeholder="Longitude"></td>
     </tr>
     <tr>
-      <td align="center"><a href="#">click</a></td>
+      <td align="center"><a id="programatically" href="" download="date.txt">Download (dynamic)</a></td>
       <td align="center"><button id="import">Import Pin Locations</button></td>
     </tr>
     <tr>
@@ -66,9 +66,9 @@ $(function() {
     getAddress(e.latlng, popup, extraStr);
   }
   
-  $('a').on('click', function() {
-    window.location.href = "data:text/plain;charset=UTF-8,Hello World";
-    
+  $("a#programatically").click(function(){
+    var now = new Date().toString();
+    this.href = "data:text/plain;charset=UTF-8,"  + encodeURIComponent(now);
   });
   $('#returnHome').on('click', function() {
     mymap.setView(startCoordinates, startZoom);
