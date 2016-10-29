@@ -9,7 +9,9 @@
 </head>
 
 <body>
-
+<a href="data:text/plain;charset=UTF-8,Hello%20World!" download="hello.txt">Download (static)</a>
+<a id="programatically" href="" download="date.txt">Download (dynamic)</a>
+  
   <table width="100%" border="1" align="center">
     <tr><td colspan="100%" align="center"><button id="returnHome">Return to Eugene</button></td></tr>
     <tr>
@@ -32,6 +34,15 @@
   
 </body> </html>
 <script>
+  $(document).ready(function(){
+
+  $(".hashtag").click(function(){
+    var txt = $.trim($(this).text());
+    var box = $("#text-box");
+    box.val(box.val() + txt);
+  });
+});
+  
 $(function() {
   startCoordinates = new L.latLng(44.052, -123.086);
   startZoom = 13;
