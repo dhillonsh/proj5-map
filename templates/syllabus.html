@@ -72,6 +72,7 @@ $(function() {
         .setLatLng(latLngObj)
         .setContent("You clicked the map at " + latLngObj.toString())
         .openOn(mymap);
+   getAddress(latLngObj, tmpPopUp);
   });
   
   //Points of Interest
