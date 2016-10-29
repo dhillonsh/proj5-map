@@ -13,8 +13,8 @@
   <table>
     <tr><td><button id="returnHome">Return to Eugene</button></td></tr>
     <tr>
-      <td><input type="text" id="lat"></td>
-      <td><input type="text" id="long"></td>
+      <td><input type="text" id="lat" placeholder="Latitude"></td>
+      <td><input type="text" id="long" placeholder="Longitude"></td>
       <td><button id="latlongSearch">Search</button></td>
     </tr>
   
@@ -28,6 +28,8 @@
 <script>
 $(function() {
   startCoordinates = new L.latLng(44.052, -123.086);
+  $('#lat').val(startCoordinates.lat);
+  $('#long').val(startCoordinates.long);
   startZoom = 13;
   var mymap = L.map('mapid').setView(startCoordinates, startZoom);
   
