@@ -31,18 +31,16 @@ import CONFIG
 
 @app.route("/")
 @app.route("/index")
+@app.route("/map")
 def index():
   app.logger.debug("Main page entry")
   
   poiObj = [];
   with open("poi.txt") as f:
       for line in f:
-        #description, lat, long = line.split(',')
-        #poiObj.append({'description': description, 'lat': lat, 'long': long})
         poiObj.append(line.rstrip("\n"))
   flask.session['poi'] = poiObj
   return flask.render_template('syllabus.html', secret_token=secret.SECRET_TOKEN)
-
 
 @app.errorhandler(404)
 def page_not_found(error):
