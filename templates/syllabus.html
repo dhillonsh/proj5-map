@@ -69,8 +69,8 @@ $(function() {
     //placeMarker({latlng: latLngObj});
     mymap.setView(latLngObj, startZoom);
     tmpPopUp
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
+        .setLatLng(latLngObj)
+        .setContent("You clicked the map at " + latLngObj.toString())
         .openOn(mymap);
   });
   
