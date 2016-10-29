@@ -127,9 +127,7 @@ $(function() {
       markerArray = [];
       $.each(event.target.result.split("\n"), function(n, elem) {
         var tmpSplit = elem.split(', ');
-        console.log(tmpSplit);
-        console.log(new L.latLng(tmpSplit[0], tmpSplit[1]));
-        placeMarker(new L.latLng(tmpSplit[0], tmpSplit[1]));
+        placeMarker({latlng: new L.latLng(tmpSplit[0], tmpSplit[1])});
       });
     }
 
