@@ -41,6 +41,10 @@ $(function() {
   }).addTo(mymap);
 
   tmpPopUp = L.popup();
+  
+  mymap.on('click', placeMarker);
+  
+  
   function placeMarker(e, marker=true, extraStr='') {
     var popup = L.popup();
     popup
@@ -52,10 +56,8 @@ $(function() {
     getAddress(e.latlng, popup, extraStr);
   }
   
-  mymap.on('click', placeMarker);
-  
   $('#returnHome').on('click', function() {
-    mymap.locate({setView: true});//mymap.setView(startCoordinates, startZoom);
+    mymap.setView(startCoordinates, startZoom);
   });
 
   /* Lat Long search */
@@ -72,19 +74,10 @@ $(function() {
     split = $(this).val().split(',');
     split[1] = split[1].replace(/\s+/g, '');
     split[2] = split[2].replace(/\s+/g, '');
-      /*var latlng = L.latLng(split[1],split[2]);
-      popupTemp
-        .setLatLng(latlng)
-        .setContent('Searching...')
-        .openOn(mymap);
-  
-    var markerTemp = L.marker().setLatLng(latlng).bindPopup(popupTemp).addTo(mymap);
-    getAddress(latlng, popupTemp, split[0] + "<br>");*/
     placeMarker({latlng: L.latLng(split[1],split[2])}, true, split[0] + "<br>");
   });
   
   function getAddress(latLng, popup, additionalStr='') {
-    var result = false;
     $.ajax({
         type: "GET",
         url: "https://api.mapbox.com/geocoding/v5/mapbox.places/" + latLng['lng'] + "," + latLng['lat'] + ".json?access_token=pk.eyJ1IjoiZGhpbGxvbnNoIiwiYSI6ImNpdWxpMmtzZTAwNG4yenFtbDgwZnYwa2oifQ.UXiMpdCUjajpzzx3Zd0o_Q",
