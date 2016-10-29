@@ -88,7 +88,7 @@ $(function() {
         .openOn(mymap);
   
     var markerTemp = L.marker().setLatLng(latlng).bindPopup(popupTemp).addTo(mymap);
-    getAddress(latlng, markerTemp.popup, split[0] + "<br>");
+    getAddress(latlng, popupTemp, split[0] + "<br>");
   });
   
   function getAddress(latLng, marker, additionalStr='') {
