@@ -42,10 +42,11 @@ $(function() {
     accessToken: '{{ secret_token }}'
   }).addTo(mymap);
   mymap.on('click', placeMarker);
-  mymap.on('dragend', testFunction);
+  mymap.on('dragend', updateLatLong);
   
-  function testFunction() {
-    alert('test');
+  function updateLatLong(e) {
+    $('#lat').val(e.target._latlng.lat);
+    $('#long').val(e.target._latlng.lng);
   }
   //Only want 1 temporary popup for lat/long searches
   tmpPopUp = L.popup();
