@@ -62,7 +62,7 @@ $(function() {
     
     
   });*/
-  $('#latlongSearch').on('click', function() {
+  $('#lat, #long').on('keyup', function() {
     var lat = $('#lat').val();
     var long = $('#long').val();
     var latLngObj = new L.latLng(lat, long);
