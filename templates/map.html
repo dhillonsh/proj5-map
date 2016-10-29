@@ -16,7 +16,7 @@
       <td align="center">Longtitude: <input type="text" id="long" placeholder="Longitude"></td>
     </tr>
     <tr>
-      <td align="center"><a id="export" href="" download="exportPins.txt">Export Pin Locations</a></td>
+      <td align="center"><a id="exportFile" href="" download="exportPins.txt">Export Pin Locations</a></td>
       <td align="center">Import Pin Locations: <input id="importFile" type="file"></td>
     </tr>
     <tr>
@@ -72,7 +72,7 @@ $(function() {
     getAddress(e.latlng, popup, extraStr);
   }
   
-  $("#export").click(function(){
+  $("#exportFile").click(function(){
     console.log(markerArray);
     console.log(markerArray[0].getLatLng());
     pinLocations = new Array();
@@ -115,7 +115,7 @@ $(function() {
         }
     });
   }
-  $('#import').on('change', function(event) {
+  $('#importFile').on('change', function(event) {
     var selectedFile = event.target.files[0];
     var reader = new FileReader();
 
