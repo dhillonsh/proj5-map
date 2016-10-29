@@ -44,13 +44,13 @@ $(function() {
   mymap.on('click', placeMarker);
   mymap.on('dragend', updateLatLong);
   
+  //Only want 1 temporary popup for lat/long searches
+  tmpPopUp = L.popup();
+  
   function updateLatLong(e) {
-    //newLocation = mymap.getCenter()
     $('#lat').val(mymap.getCenter().lat);
     $('#long').val(mymap.getCenter().lng);
   }
-  //Only want 1 temporary popup for lat/long searches
-  tmpPopUp = L.popup();
   
   function placeMarker(e, marker=true, extraStr='') {
     var popup = L.popup();
@@ -65,6 +65,7 @@ $(function() {
   
   $('#returnHome').on('click', function() {
     mymap.setView(startCoordinates, startZoom);
+    updateLatLong($(this));
   });
 
   /* Lat Long search */
