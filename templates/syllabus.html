@@ -41,7 +41,7 @@ $(function() {
   }).addTo(mymap);
 
   tmpPopUp = L.popup();
-  function placeMarker(e, marker=true) {
+  function placeMarker(e, marker=true, extraStr='') {
     var popup = L.popup();
     popup
         .setLatLng(e.latlng)
@@ -49,7 +49,7 @@ $(function() {
         .openOn(mymap);
   
     if(marker == true) var markerTemp = L.marker().setLatLng(e.latlng).bindPopup(popup).addTo(mymap);
-    getAddress(e.latlng, popup);
+    getAddress(e.latlng, popup, extraStr);
   }
   
   mymap.on('click', placeMarker);
@@ -58,17 +58,12 @@ $(function() {
     mymap.locate({setView: true});//mymap.setView(startCoordinates, startZoom);
   });
 
+  /* Lat Long search */
   $('#lat, #long').on('keyup', function() {
     var lat = $('#lat').val();
     var long = $('#long').val();
     var latLngObj = new L.latLng(lat, long);
     placeMarker({latlng: latLngObj}, false);
-    /*mymap.setView(latLngObj, startZoom);
-    tmpPopUp
-        .setLatLng(latLngObj)
-        .setContent("Searching...")
-        .openOn(mymap);
-   getAddress(latLngObj, tmpPopUp);*/
   });
   
   //Points of Interest
@@ -77,14 +72,15 @@ $(function() {
     split = $(this).val().split(',');
     split[1] = split[1].replace(/\s+/g, '');
     split[2] = split[2].replace(/\s+/g, '');
-      var latlng = L.latLng(split[1],split[2]);
+      /*var latlng = L.latLng(split[1],split[2]);
       popupTemp
         .setLatLng(latlng)
         .setContent('Searching...')
         .openOn(mymap);
   
     var markerTemp = L.marker().setLatLng(latlng).bindPopup(popupTemp).addTo(mymap);
-    getAddress(latlng, popupTemp, split[0] + "<br>");
+    getAddress(latlng, popupTemp, split[0] + "<br>");*/
+    placeMarker({latlng: L.latLng(split[1],split[2])}, true, split[0] + "<br>");
   });
   
   function getAddress(latLng, popup, additionalStr='') {
