@@ -28,7 +28,7 @@
   {% for entry in session.poi %}
     <input type="hidden" value="{{entry}}">
   {% endfor %}
-  <textarea id="result" rows="10" cols="50"></textarea>
+  
 </body> </html>
 <script>  
 $(function() {
@@ -119,11 +119,14 @@ $(function() {
     var selectedFile = event.target.files[0];
     var reader = new FileReader();
 
-    var result = document.getElementById("result");
-
     reader.onload = function(event) {
       console.log(event.target.result);
-      result.innerHTML = event.target.result;
+      for(i = 0;i < markerArray.length; i++) {
+        mymap.removeLayer(markerArray[i]);
+      }
+      //pinLocations.push(markerArray[i].getLatLng().lat + ', ' + markerArray[i].getLatLng().lng); 
+    }
+      
     };
 
     reader.readAsText(selectedFile);
