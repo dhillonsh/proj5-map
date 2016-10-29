@@ -45,9 +45,9 @@ $(function() {
   mymap.on('dragend', updateLatLong);
   
   function updateLatLong(e) {
-    console.log(e);
-    //$('#lat').val(e.target._latlng.lat);
-    //$('#long').val(e.target._latlng.lng);
+    newLocation = e.target.getLatLng();
+    $('#lat').val(e.lat);
+    $('#long').val(e.lng);
   }
   //Only want 1 temporary popup for lat/long searches
   tmpPopUp = L.popup();
