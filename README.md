@@ -1,17 +1,18 @@
 # README #
 
-### Author: Harpreet Dhillon , harpreet@uoregon.edu ###
+### Author: Harpreet Dhillon, harpreet@uoregon.edu ###
 
 ---
 
 ### Purpose ###
-* This application is for Project 2 of CIS 322 at University of Oregon.
-* The purpose was to become familiar with the Flask framework and Jinja2 templating to develop and display a simple schedule.
+* This application is for Project 5 of CIS 322 at University of Oregon.
+* The purpose was to use mapping apis in conjuction with ajax calls to be able to add pins to a map.
 
 ### Application Specifics ###
-* The schedule will be read from [schedule.txt](/data/schedule.txt) and displayed automatically when visiting a routed address.
-* Else, a [404 page](/templates/page_not_found.html) will be displayed.
-* The current week will be highlighted in a different color on the schedule display.
+* There is a [poi](/poi.txt) txt file that specifies a preset set of Points of Interest that will be placed on the map automatically and follow the format:
+  * Description, Latitude, Longtitude
+* There are two inputs that automatically update with the respect latitude/longitutde of the map after dragging, it can also be used to change the set of the map to a specific latitude/longtitude
+* There is also a button that will return the map to the view of Eugene, Oregon
 
 ### Running the Application ###
 * Test deployment to other environments including Raspberry Pi.  Deployment 
@@ -24,5 +25,4 @@
 * The default port is 5000, so the webserver should be reachable at http://localhost:5000 , and also through its IP address.
  
 ### Testing the Application ###
- * There are no tests for this application other than accessing the webpage at http://localhost:5000 and seeing the schedule display.
-
+ * There are no tests for this application other than accessing the webpage at http://localhost:5000 and seeing the map display.
