@@ -9,17 +9,19 @@
 </head>
 
 <body>
-<div id="mapid" style="width: 600px; height: 400px;"></div>
+
   <table>
     <tr><td><button id="returnHome">Return to Eugene</button></td></tr>
     <tr>
       <td><input type="text" id="lat" placeholder="Latitude"></td>
       <td><input type="text" id="long" placeholder="Longitude"></td>
-      <td><button id="latlongSearch">Search</button></td>
+    </tr>
+    <tr>
+      <td><div id="mapid" style="width: 600px; height: 400px;"></div></td>
     </tr>
   
     
-    <table>
+    </table>
   {% for entry in session.poi %}
     <input type="hidden" value="{{entry}}">
   {% endfor %}
@@ -32,18 +34,17 @@ $(function() {
   
   $('#lat').val(startCoordinates.lat);
   $('#long').val(startCoordinates.lng);
-  var mymap = L.map('mapid').setView(startCoordinates, startZoom);
   
+  var mymap = L.map('mapid').setView(startCoordinates, startZoom);
   L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token={{ secret_token }}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
     accessToken: '{{ secret_token }}'
   }).addTo(mymap);
-
-  tmpPopUp = L.popup();
-  
   mymap.on('click', placeMarker);
   
+  //Only want 1 temporary popup for lat/long searches
+  tmpPopUp = L.popup();
   
   function placeMarker(e, marker=true, extraStr='') {
     var popup = L.popup();
