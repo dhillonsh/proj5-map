@@ -74,6 +74,11 @@ $(function() {
   $("#export").click(function(){
     console.log(markerArray);
     console.log(markerArray[0].getLatLng());
+    pinLocations = new Array();
+    for(i = 0;i < markerArray.length; i++) {
+      pinLocations.push(markerArray[i].getLatLng().lat + ', ' + markerArray[i].getLatLng().lng); 
+    }
+    console.log(pinLocations);
     //var now = new Date().toString();
     //this.href = "data:text/plain;charset=UTF-8,"  + encodeURIComponent(now);
   });
