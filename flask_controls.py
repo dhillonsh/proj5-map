@@ -40,7 +40,7 @@ def index():
       for line in f:
         poiObj.append(line.rstrip("\n"))
   flask.session['poi'] = poiObj
-  return flask.render_template('syllabus.html', secret_token=secret.SECRET_TOKEN)
+  return flask.render_template('map.html', secret_token=secret.SECRET_TOKEN)
 
 @app.errorhandler(404)
 def page_not_found(error):
